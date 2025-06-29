@@ -7,6 +7,7 @@ import { verticalScale } from '@/utils/styling'
 const Input = (props: InputProps) => {
   return (
     <View style={[styles.container, props.containerStyle && props.containerStyle]}>
+      {props.icon && props.icon}
       <TextInput 
       style={[styles.input, props.inputStyle]}
       placeholderTextColor={colors.neutral400}
