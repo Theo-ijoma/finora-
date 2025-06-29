@@ -1,6 +1,11 @@
 import { StyleSheet, View, Text, Pressable, Alert } from "react-native";
 import { colors, spacingX, spacingY } from "@/constants/theme";
 import { verticalScale } from "@/utils/styling";
+import React, { useRef, useState } from "react";
+import ScreenWrapper from "@/components/ScreenWrapper";
+import BackButton from "@/components/BackButton";
+import Typo from "@/components/Typo";
+import Input from "@/components/Input";
 import * as Icons from "phosphor-react-native";
 import Button from "@/components/Button";
 import { router } from "expo-router";
