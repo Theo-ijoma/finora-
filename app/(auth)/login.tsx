@@ -1,13 +1,13 @@
-import { StyleSheet, View, Text } from "react-native";
+import BackButton from "@/components/BackButton";
+import Button from "@/components/Button";
+import Input from "@/components/Input";
+import ScreenWrapper from "@/components/ScreenWrapper";
+import Typo from "@/components/Typo";
 import { colors, spacingX, spacingY } from "@/constants/theme";
 import { verticalScale } from "@/utils/styling";
-import React, { useRef, useState } from "react";
-import ScreenWrapper from "@/components/ScreenWrapper";
-import BackButton from "@/components/BackButton";
-import Typo from "@/components/Typo";
-import Input from "@/components/Input";
 import * as Icons from "phosphor-react-native";
-import Button from "@/components/Button";
+import React, { useRef, useState } from "react";
+import { StyleSheet, View } from "react-native";
 
 const handleSubmit = async () => {};
 
