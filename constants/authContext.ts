@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
 import { auth, firestore } from "@/config/firebase";
+
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -56,7 +57,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
           email: data.email || null,
           image: data.image || null,
         };
-        setUser(userData);
+        setUser({...userData});
         return { success: true, user: userData };
       } else {
         return { success: false, msg: "No such document!" };
@@ -76,6 +77,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   return (
-    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={contextValue} >
+      {children}
+    </AuthContext.Provider>
   );
 };
+
+
