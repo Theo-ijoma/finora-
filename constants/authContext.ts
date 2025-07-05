@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { auth, firestore } from "@/config/firebase";
 
 import {
@@ -10,11 +10,9 @@ import { AuthContextType, UserType } from "@/type";
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
-interface AuthProviderProps {
-  children: ReactNode;
-}
-
-export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [user, setUser] = useState<UserType>(null);
 
   const login = async (email: string, password: string) => {
@@ -70,8 +68,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     updateUserData
   };
 
-  return (
-    React.createElement(AuthContext.Provider, { value: contextValue }, children)
+  return React.createElement(
+    AuthContext.Provider,
+    { value: contextValue },
+    children
   );
 };
 
