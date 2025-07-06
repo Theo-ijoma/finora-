@@ -1,9 +1,10 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { auth, firestore } from "@/config/firebase";
 
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
 } from "firebase/auth";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { AuthContextType, UserType } from "@/type";
@@ -14,6 +15,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<UserType>(null);
+
+  useEffect(()=>{
+    const unsub = onAuthStateChanged(auth, (firebaseUser)=>{
+
+    })
+  }, [])
 
   const login = async (email: string, password: string) => {
     try {
